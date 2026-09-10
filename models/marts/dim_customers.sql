@@ -1,23 +1,12 @@
 with customers as (
 
-    select
-        ID as customer_id,
-        FIRST_NAME as first_name,
-        LAST_NAME as last_name
-
-    from raw.customers
+    select * from {{ ref('stg_jaffle_shop_customers') }}
 
 ),
 
 orders as (
 
-    select
-        ID as order_id,
-        USER_ID as customer_id,
-        ORDER_DATE as order_date,
-        STATUS as status
-
-    from raw.orders
+    select * from {{ ref('stg_jaffle_shop_orders') }}
 
 ),
 
