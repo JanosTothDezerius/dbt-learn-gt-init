@@ -4,4 +4,9 @@ sources:
     schema: raw
     tables:
       - name: customers
+        columns:
+          - name: ID
+            data_tests:
+              - unique
+              - not_null
       - name: orders
