@@ -1,0 +1,11 @@
+snapshots:
+  - name: orders_snapshot
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      database: dw_jaffle-shop
+      unique_key: ID
+      strategy: check
+      check_cols: ['ID', 'USER_ID', 'ORDER_DATE', 'STATUS']
+      hard_deletes: ignore
+      dbt_valid_to_current: "CAST('9999-12-31' AS date)"
