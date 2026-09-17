@@ -4,3 +4,16 @@ sources:
     schema: raw
     tables:
       - name: payments
+        columns:
+          - name: ID
+            data_tests:
+              - unique:
+                  config:
+                    severity: error
+                    error_if: ">100"
+                    warn_if: ">10"
+          - name: ORDERID
+          - name: PAYMENTMETHOD
+          - name: STATUS
+          - name: AMOUNT
+          - name: CREATED

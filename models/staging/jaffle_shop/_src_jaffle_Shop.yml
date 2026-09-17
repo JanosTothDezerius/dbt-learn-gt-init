@@ -12,4 +12,8 @@ sources:
             data_tests:
               - unique
               - not_null
+              - dbt_utils.cardinality_equality:
+                  arguments:
+                    field: customer_id
+                    to: ref('stg_jaffle_shop_customers')
       - name: orders

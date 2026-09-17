@@ -1,0 +1,21 @@
+models:
+  - name: fct_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+      - name: order_date
+        data_tests:
+          - not_null
+      - name: amount
+        data_tests:
+          - average_dollars_spent_greater_than_one:
+              arguments:
+                group_by_column: customer_id
+              config:
+                severity: error
+                error_if: ">100"
